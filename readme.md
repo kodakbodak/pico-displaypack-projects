@@ -1,5 +1,16 @@
 This is a simple project I am working on for fun. It uses a Raspbery Pi Pico with the pimoroni PicoDisplay. Just a little collection of WIP projects for it. As I learn more about MicroPython and the display library, this will grow.
 
+
+THE PROJECTS:
+
+Winning Button:
+
+    Winning Button is a game of chance. Click the correct button on your display to see if you win! Name is subject to change.
+
+Decision Maker:
+
+    Ever wanted to flip a coin for something? Maybe play a round of Rock, Paper, Scissors? Perhaps you'd like to pick a random number betwen 1 and 100? And who could forget the classic 6-sided dice, now in (really janky) digital form! All this and (not actually any) more is available in this Python file. 
+
 USAGE:
 
 Required Firmware:
