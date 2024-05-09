@@ -27,4 +27,28 @@ Display:
     
     https://shop.pimoroni.com/products/pico-display-pack?variant=32368664215635
 
+IDE:
 
+If you're looking at this project, then you probably know what you're doing. But just in case, I have been using Thonny to work with the Pico and everything is super easy. These have been tested using Thonny on Arch Linux (btw) but should be no problem on other OS.
+
+INSTALL THONNY:
+
+Arch Linux
+
+    yay -S thonny
+
+Debian/Ubuntu
+
+    sudo apt install python3-tk thonny
+
+RHEL/Fedora
+
+    sudo dnf install thonny
+
+
+Mac/Windows
+
+    https://thonny.org/
+
+
+Thanks for checking this out!
