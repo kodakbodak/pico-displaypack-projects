@@ -1,10 +1,4 @@
-This is a simple project I am working on for fun.
-
-It uses a Raspbery Pi Pico with the pimoroni PicoDisplay.
-
-Just a little collection of WIP projects for it.
-
-As I learn more about MicroPython and the display library, this will grow.
+This is a simple project I am working on for fun. It uses a Raspbery Pi Pico with the pimoroni PicoDisplay. Just a little collection of WIP projects for it. As I learn more about MicroPython and the display library, this will grow.
 
 USAGE:
 
