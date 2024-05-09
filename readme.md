@@ -39,7 +39,7 @@ Arch Linux
 
 Debian/Ubuntu
 
-    sudo apt install python3-tk thonny
+    sudo apt install thonny
 
 RHEL/Fedora
 
