@@ -6,12 +6,15 @@ Just a little collection of WIP porjects for it.
 
 USAGE:
 
-    Required firmware: https://github.com/pimoroni/pimoroni-pico/releases
+Required Firmware:
+    https://github.com/pimoroni/pimoroni-pico/releases
 
 DEVICES:
 
-    Pi Pico: https://www.raspberrypi.com/products/raspberry-pi-pico/
+Pi Pico: 
+    https://www.raspberrypi.com/products/raspberry-pi-pico/
 
-    Display: https://shop.pimoroni.com/products/pico-display-pack?variant=32368664215635
+Display: 
+    https://shop.pimoroni.com/products/pico-display-pack?variant=32368664215635
 
 
