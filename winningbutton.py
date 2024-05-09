@@ -1,5 +1,11 @@
 # A simple game for the Pi Pico with the Pimoroni PicoDisplay HAT
+# One button is assigned as the "Winning Button"
 
+#############################################################
+#############################################################
+#############################################################
+
+# Import dependencies
 from machine import Pin, Timer
 
 import time
@@ -14,17 +20,10 @@ from pimoroni import RGBLED
 
 import random
 
-import picographics
-
-import jpegdec
-
-#output to onboard led
-led1_Pin =Pin(25,Pin.OUT)   
-
-#define the display type, colors type, screen rotation
+# Define the display type, colors type, screen rotation
 display = PicoGraphics(display=DISPLAY_PICO_DISPLAY, pen_type=PEN_P4, rotate=0) 
 
-#create pens of different colors (bet I wont use mode of them lol)
+# Create pens of different colors
 WHITE = display.create_pen(255, 255, 255)
 
 BLACK = display.create_pen(0, 0, 0)
@@ -39,20 +38,20 @@ GREEN = display.create_pen(0, 255, 0)
 
 RED = display.create_pen(255, 0, 0)
 
-#more setup
+# Set the brightness of the backlight (0.0 - 1.0)
 display.set_backlight(0.5)
 
-#font for us to use
+# Set a font to use
 display.set_font("bitmap8")
 
-#define the LED
+# Define the LED and set its initial color
 led = RGBLED(6,7,8)
 
-led1_Pin = Pin(25,Pin.OUT)   #onboard led
+led1_Pin = Pin(25,Pin.OUT)
 
 led.set_rgb(0, 0, 0)
 
-#define the buttons
+# Define the buttons
 button_a = Button(12)
 
 button_b = Button(13)
@@ -61,7 +60,7 @@ button_x = Button(14)
 
 button_y = Button(15)
 
-#a function we can use to clear the screen
+# A function we can use to clear the screen
 def clear():
 
     display.set_pen(BLACK)
@@ -70,7 +69,11 @@ def clear():
 
     display.update()
     
-#function for a win (green led)
+#############################################################
+#############################################################
+#############################################################
+    
+# Function for Win Condition
 def win():
     
     clear()
@@ -93,7 +96,7 @@ def win():
     
     clear()
     
-#function for a loss (red led)
+# Function for Lose Condition
 def lose():
     
     clear()
@@ -116,36 +119,20 @@ def lose():
     
     clear()
         
-#pick the winning button
+# Function to pick the winning number
 def winning_button():
 
     random_winner = random.randint(1, 4)
     
     return random_winner
     
-
-
-# Image attempt
-
-#clear()
-
-#j = jpegdec.JPEG(display)
-
-#j.open_file("loading_screen_button.jpg")
-
-#j.decode(0, 0, jpegdec.JPEG_SCALE_FULL)
-
-#display.update()
-
-
-
 # Clear the Screen
 clear()
 
 # Set up the pen
 display.set_pen(CYAN)
     
-#Intro Screen
+# Intro Screen
 display.text("Winning Button", 15, 67, 240, 3)
 
 display.update()
@@ -154,7 +141,7 @@ time.sleep(2)
 
 clear()
 
-#main loop for the game
+# Main loop for the game
 while True:
 
     winning_number = winning_button()
@@ -211,8 +198,8 @@ while True:
 
         led.set_rgb(0, 0, 0)
         
-
-    time.sleep(0.1)  # this number is how frequently the Pico checks for button presses
+    # Time between checks for button presses
+    time.sleep(0.1)  
         
              
     

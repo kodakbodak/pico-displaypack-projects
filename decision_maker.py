@@ -1,7 +1,13 @@
 # Decision Maker for Pi Pico with Pimoroni Pico Dislay Pack
+# Allows the user to make decisions with a few fun modules
+#	- Coin Flip
+#	- Dice Roll
+#	- Rock, Paper, Scissors
+#	- Random number from 1-100
 
 #############################################################
-#import dependencies
+#############################################################
+#############################################################
 from machine import Pin, Timer
 
 import time
@@ -22,7 +28,7 @@ led1_Pin =Pin(25,Pin.OUT)
 #define the display type, colors type, screen rotation
 display = PicoGraphics(display=DISPLAY_PICO_DISPLAY, pen_type=PEN_P4, rotate=0) 
 
-#create pens of different colors (bet I wont use mode of them lol)
+#create pens of different colors
 WHITE = display.create_pen(255, 255, 255)
 
 BLACK = display.create_pen(0, 0, 0)
@@ -48,7 +54,7 @@ led = RGBLED(6,7,8)
 
 led1_Pin = Pin(25,Pin.OUT)   #onboard led
 
-led.set_rgb(0, 0, 0,)
+led.set_rgb(0, 0, 0)
 
 #define the buttons
 button_a = Button(12)
@@ -58,9 +64,8 @@ button_b = Button(13)
 button_x = Button(14)
 
 button_y = Button(15)
-#############################################################
 
-#a function we can use to easily and cleanly clear the screen
+#a function we can use to clear the screen
 def clear():
 
     display.set_pen(BLACK)
@@ -68,6 +73,10 @@ def clear():
     display.clear()
 
     display.update()
+    
+#############################################################
+#############################################################
+#############################################################
 
 # Flip a coin
 def coinflip():
