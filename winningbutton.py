@@ -1,4 +1,4 @@
-#A simple game for the Pi Pico with the Pimoroni PicoDisplay HAT
+# A simple game for the Pi Pico with the Pimoroni PicoDisplay HAT
 
 from machine import Pin, Timer
 
@@ -13,6 +13,10 @@ from picographics import PicoGraphics, DISPLAY_PICO_DISPLAY, PEN_P4
 from pimoroni import RGBLED
 
 import random
+
+import picographics
+
+import jpegdec
 
 #output to onboard led
 led1_Pin =Pin(25,Pin.OUT)   
@@ -44,7 +48,9 @@ display.set_font("bitmap8")
 #define the LED
 led = RGBLED(6,7,8)
 
-led1_Pin = Pin(25,Pin.OUT)   #onboard led  
+led1_Pin = Pin(25,Pin.OUT)   #onboard led
+
+led.set_rgb(0, 0, 0)
 
 #define the buttons
 button_a = Button(12)
@@ -75,9 +81,15 @@ def win():
     
     display.update()
     
-    led.set_rgb(0, 255, 0)
-    
-    time.sleep(3)
+    for x in range(5):
+        
+        led.set_rgb(0, 255, 0)
+        
+        time.sleep(0.2)
+        
+        led.set_rgb(0, 0, 0)
+        
+        time.sleep(0.2)
     
     clear()
     
@@ -92,9 +104,15 @@ def lose():
     
     display.update()
     
-    led.set_rgb(255, 0, 0)
-    
-    time.sleep(3)
+    for x in range(2):
+        
+        led.set_rgb(255, 0, 0)
+        
+        time.sleep(0.2)
+        
+        led.set_rgb(0, 0, 0)
+        
+        time.sleep(0.2)
     
     clear()
         
@@ -106,17 +124,39 @@ def winning_button():
     return random_winner
     
 
+
+# Image attempt
+
+#clear()
+
+#j = jpegdec.JPEG(display)
+
+#j.open_file("loading_screen_button.jpg")
+
+#j.decode(0, 0, jpegdec.JPEG_SCALE_FULL)
+
+#display.update()
+
+
+
+# Clear the Screen
+clear()
+
+# Set up the pen
+display.set_pen(CYAN)
+    
+#Intro Screen
+display.text("Winning Button", 15, 67, 240, 3)
+
+display.update()
+
+time.sleep(2)
+
 clear()
 
 #main loop for the game
 while True:
-    
-    #display.set_pen(BLACK)
-     
-    #display.text("Pick a button, see if you win", 10, 10, 240, 4)
-     
-    #display.update()
-     
+
     winning_number = winning_button()
      
     winner = str(winning_number)
@@ -162,15 +202,14 @@ while True:
              lose()
     
     else:
-        
-        
-        display.set_pen(GREEN)
+             
+        display.set_pen(CYAN)
 
         display.text("Press a button, see if you win!", 10, 10, 240, 4)
 
         display.update()
 
-        led.set_rgb(255, 255, 255)
+        led.set_rgb(0, 0, 0)
         
 
     time.sleep(0.1)  # this number is how frequently the Pico checks for button presses
