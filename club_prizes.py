@@ -74,4 +74,4 @@ def clear():
 #############################################################
 #############################################################
     
-prizes = ['Extra Candy', 'Pi Pico', 'Extra Sticker', 'Spin Again', 
+prizes = ['Extra Candy', 'Pi Pico', 'Extra Sticker', 'Spin Again', 'Surplus Computer', 
